@@ -1,11 +1,10 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from typing import List
+from typing import List,  Optional
 
 import models, schemas
 from database import engine, get_db
 
-# Create the database tables on startup
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Python Expense Tracker API")
